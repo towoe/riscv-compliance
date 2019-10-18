@@ -1,5 +1,6 @@
 2019-10-18 Tobias Wölfel <tobias.woelfel@mailbox.org>
     * Change argument for lowRISC/ibex
+    * Use ELF files for lowRISC/ibex
 
 2019-08-29 Robert Balas <balasr@iis.ee.ethz.ch>
     * Added support for using RI5CY as a target.

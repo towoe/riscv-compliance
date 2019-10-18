@@ -8,7 +8,7 @@ TARGET_SIM ?= Vibex_riscv_compliance
 RUN_TARGET=\
     $(TARGET_SIM) \
         --term-after-cycles=100000 \
-        --raminit=$(work_dir_isa)/$<.vmem \
+        --meminit=ram,$(work_dir_isa)/$<.vmem \
         > $(work_dir_isa)/$(*).stdout \
         2> $(work_dir_isa)/$@; \
         grep "^SIGNATURE: " $(work_dir_isa)/$(*).stdout | sed 's/SIGNATURE: 0x//' \

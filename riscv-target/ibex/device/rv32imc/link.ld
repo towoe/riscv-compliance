@@ -1,29 +1,24 @@
 OUTPUT_ARCH( "riscv" )
 ENTRY(_start)
 
-MEMORY
-{
- ram (rwx) : ORIGIN = 0x00000000, LENGTH = 0x8000
-}
-
 SECTIONS
 {
   . = 0x00000000;
-  .text.trap : { *(.text.trap) } > ram
+  .text.trap : { *(.text.trap) }
 
   . = 0x00000080;
-  .text.init : { *(.text.init) } > ram
+  .text.init : { *(.text.init) }
 
   . = ALIGN(0x1000);
-  .tohost : { *(.tohost); . = ALIGN(0x1000); } > ram
+  .text : { *(.text); . = ALIGN(0x1000); }
 
   . = ALIGN(0x1000);
-  .text : { *(.text) } > ram
+  .tohost : { *(.tohost) }
 
   . = ALIGN(0x1000);
-  .data : { *(.data) } > ram
-  .data.string : { *(.data.string)} > ram
-  .bss : { *(.bss) } > ram
+  .data : { *(.data) }
+  .data.string : { *(.data.string)}
+  .bss : { *(.bss) }
   _end = .;
 }
 
